@@ -31,15 +31,7 @@ public class RadioTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "9,0",
-            "0,1",
-            "1,2",
-            "4,5",
-            "8,9",
-            "7,8",
-            "6,7"
-    })
+    @CsvFileSource(files="src/test/resources/ButtonPrev.csv")
     public void testButtonPrevStationSelection(int expected, int station) {
         Radio radio = new Radio();
         radio.setStationSelection(station);
