@@ -43,15 +43,7 @@ public class RadioTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "5,6",
-            "0,0",
-            "0,1",
-            "1,2",
-            "9,10",
-            "8,9",
-            "7,8"
-    })
+    @CsvFileSource(files="src/test/resources/VolumeControlReduce.csv")
     public void testVolumeControlReduce(int expected, int level) {
         Radio radio = new Radio();
         radio.setVolumeControl(level);
