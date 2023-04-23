@@ -3,22 +3,13 @@ package ru.netology.radio;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class RadioTest {
 
     @ParameterizedTest
-    @CsvSource({
-            "5,5",
-            "0,0",
-            "1,1",
-            "2,2",
-            "9,9",
-            "8,8",
-            "7,7",
-            "0,11",
-            "0,-11"
-    })
+    @CsvFileSource(files="src/test/resources/StationSelection.csv")
     public void testStationSelection (int expected, int station) {
         Radio radio = new Radio();
         radio.setStationSelection(station);
