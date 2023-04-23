@@ -1,10 +1,8 @@
 package ru.netology.radio;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
 
 public class RadioTest {
 
@@ -55,15 +53,7 @@ public class RadioTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "6,5",
-            "1,0",
-            "2,1",
-            "3,2",
-            "10,10",
-            "10,9",
-            "9,8"
-    })
+    @CsvFileSource(files="src/test/resources/VolumeControlIncrease.csv")
     public void testVolumeControlIncrease(int expected, int level) {
         Radio radio = new Radio();
         radio.setVolumeControl(level);
@@ -75,16 +65,7 @@ public class RadioTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "0,-5",
-            "0,0",
-            "1,1",
-            "2,2",
-            "0,15",
-            "10,10",
-            "9,9",
-            "8,8"
-    })
+    @CsvFileSource(files="src/test/resources/VolumeControl.csv")
     public void testVolumeControl(int expected, int level) {
         Radio radio = new Radio();
         radio.setVolumeControl(level);
