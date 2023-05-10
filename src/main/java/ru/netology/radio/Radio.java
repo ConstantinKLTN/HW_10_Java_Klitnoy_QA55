@@ -1,33 +1,47 @@
 package ru.netology.radio;
 
 public class Radio {
-    private int stationSelection;
-    private int volumeControl;
+
+    private int minStation = 0;
+    private int maxStation = 9;
+    private int stationSelection = minStation;
+    private int minLevelVolume = 0;
+    private int maxLevelVolume = 100;
+    private int volumeControl = minLevelVolume;
+
+    public Radio(int quantityStation) {
+
+    }
+
+    public Radio() {
+
+    }
+
 
     public void nextStation() {
-        if (stationSelection != 9) {
+        if (stationSelection != maxStation) {
             stationSelection++;
         } else {
-            stationSelection = 0;
+            stationSelection = minStation;
         }
     }
 
     public void prevStation() {
-        if (stationSelection != 0) {
+        if (stationSelection != minStation) {
             stationSelection--;
         } else {
-            stationSelection = 9;
+            stationSelection = maxStation;
         }
     }
 
     public void increaseVolume() {
-        if (volumeControl < 10) {
+        if (volumeControl < maxLevelVolume) {
             volumeControl = volumeControl + 1;
         }
     }
 
     public void reduceVolume() {
-        if (volumeControl > 0) {
+        if (volumeControl > minLevelVolume) {
             volumeControl = volumeControl - 1;
         }
     }
@@ -35,10 +49,10 @@ public class Radio {
         return stationSelection;
     }
     public void setStationSelection(int stationSelection) {
-        if (stationSelection < 0) {
+        if (stationSelection < minStation) {
             return;
         }
-        if (stationSelection > 9) {
+        if (stationSelection > maxStation) {
             return;
         }
         this.stationSelection = stationSelection;
@@ -47,10 +61,10 @@ public class Radio {
         return volumeControl;
     }
     public void setVolumeControl(int volumeControl) {
-        if (volumeControl < 0) {
+        if (volumeControl < minLevelVolume) {
             return;
         }
-        if (volumeControl > 10) {
+        if (volumeControl > maxLevelVolume) {
             return;
         }
         this.volumeControl = volumeControl;
