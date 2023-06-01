@@ -77,7 +77,7 @@ public class RadioTest {
 
     @Test
     public void testStationSelectionConstructorSuperMax() {
-        Radio radio = new Radio(100);
+        Radio radio = new Radio(9);
 
         radio.setStationSelection(19);
 
@@ -97,12 +97,22 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void testStationSelectionConstructor() {
+    public void testStationSelectionConstructorMin() {
         Radio radio = new Radio(9);
 
-        radio.setStationSelection(6);
+        radio.setStationSelection(0);
 
-        int expected = 6;
+        int expected = 0;
+        int actual = radio.getStationSelection();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void testStationSelectionConstructorMax() {
+        Radio radio = new Radio(9);
+
+        radio.setStationSelection(8);
+
+        int expected = 8;
         int actual = radio.getStationSelection();
         Assertions.assertEquals(expected, actual);
     }
